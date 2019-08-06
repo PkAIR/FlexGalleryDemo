@@ -37,6 +37,19 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel');     
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', bringText));
+
+    function toggleOpen() {
+        this.classList.toggle('open');
+    }
+    
+    function bringText(e) {
+        if (e.propertyName.includes('flex')) {
+            this.classList.toggle('open-active');
+        }
+    }
   </script>
 
 </body>
